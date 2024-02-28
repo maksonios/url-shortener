@@ -7,9 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
-import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import {UrlsTableViewComponent} from "./urls-table-view/urls-table-view.component";
 import {UrlsInfoComponent} from "./urls-info/urls-info.component";
@@ -21,7 +19,6 @@ import {RedirectComponent} from "./redirect/redirect.component";
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    FetchDataComponent,
     UrlsTableViewComponent,
     UrlsInfoComponent,
     AboutComponent,
@@ -34,7 +31,6 @@ import {RedirectComponent} from "./redirect/redirect.component";
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'about', component: AboutComponent},
       { path: 'urls-info/:id', component: UrlsInfoComponent},
       { path: 'urls-table-view', component: UrlsTableViewComponent},
