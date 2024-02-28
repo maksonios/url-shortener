@@ -6,7 +6,7 @@
 
 <p *ngIf="!urls?.length"><em>There are no URLs in the database.</em></p>
 
-<section id="urlbox">
+<section *ngIf="isAuthenticated | async" id="urlbox">
   <h1 class="text-center mt-5 mb-2">Paste the URL to be shortened</h1>
   <form (submit)="submitAction($event)">
     <div id="formurl">
@@ -24,14 +24,14 @@
   <tr>
     <th>Original URL</th>
     <th>Shortened URL</th>
-    <th>Actions</th>
+    <th *ngIf="isAuthenticated | async">Actions</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let url of urls">
     <td>{{ url.url }}</td>
     <td>{{ url.shortUrl }}</td>
-    <td id="actions">
+    <td *ngIf="isAuthenticated | async" id="actions">
       <a [routerLink]="['/urls-info/', url?.id]">View</a>
       <button id="delete-btn" (click)="deleteAction(url.id);">Delete</button>
     </td>

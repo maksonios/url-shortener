@@ -23,6 +23,7 @@ public class UrlController : ControllerBase
         _service = service;
     }
     
+    [AllowAnonymous]
     [HttpGet]
     public async Task<IEnumerable<UrlModel>> Get()
     {
