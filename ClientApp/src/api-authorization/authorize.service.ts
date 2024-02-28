@@ -31,6 +31,7 @@ export enum AuthenticationResultStatus {
 
 export interface IUser {
   name?: string;
+  role?: string | string[];
 }
 
 @Injectable({
@@ -151,6 +152,21 @@ export class AuthorizeService {
       console.log(`There was an error trying to log out '${error}'.`);
       return this.error(error);
     }
+  }
+
+  public hasRole(roleName: string): Observable<boolean> {
+    return this.getUser().pipe(
+      map(user => {
+        const roles = user?.role;
+        if (!roles) {
+          return false;
+        }
+        if (Array.isArray(roles)) {
+          return roles.includes(roleName);
+        }
+        return roles === roleName;
+      })
+    );
   }
 
   private createArguments(state?: any): any {

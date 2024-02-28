@@ -31,10 +31,10 @@ import {RedirectComponent} from "./redirect/redirect.component";
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'about', component: AboutComponent},
-      { path: 'urls-info/:id', component: UrlsInfoComponent},
-      { path: 'urls-table-view', component: UrlsTableViewComponent},
-      { path: 'redirect', component: RedirectComponent},
+      { path: 'about', component: AboutComponent },
+      { path: 'urls-info/:id', component: UrlsInfoComponent },
+      { path: 'urls-table-view', component: UrlsTableViewComponent },
+      { path: 'redirect', component: RedirectComponent },
     ])
   ],
   providers: [

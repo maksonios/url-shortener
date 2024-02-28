@@ -1,6 +1,13 @@
 <div id="about">
   <h1 class="text-center mt-5 mb-2">About this Url Shortener</h1>
   <br />
-  <p>This app is written using a ASP.NET MVC Core with Angular template. There is one controller that's responsible for managing GET, POST and DELETE requests. There is a DI
-  container that's injected as service, which is responsible for shortening URLs using SHA256 algorithm. <br /> Developed by Prostakov Maksym.</p>
+  <div *ngIf="!isAdmin">
+    <p [innerHTML]="description"></p>
+  </div>
+  <div *ngIf="isAdmin">
+    <textarea [(ngModel)]="description" rows="10" class="form-control"></textarea>
+    <button (click)="submit()" class="btn btn-primary mt-2">Save</button>
+  </div>
+<!--  <p>This app is written using a ASP.NET MVC Core with Angular template. There is one controller that's responsible for managing GET, POST and DELETE requests. There is a DI-->
+<!--  container that's injected as service, which is responsible for shortening URLs using SHA256 algorithm. <br /> Developed by Prostakov Maksym.</p>-->
 </div>
