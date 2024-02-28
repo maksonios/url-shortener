@@ -1,4 +1,4 @@
-﻿import {Component, Inject, OnInit} from '@angular/core';
+﻿import {Component, Inject} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AuthorizeService} from "../../api-authorization/authorize.service";

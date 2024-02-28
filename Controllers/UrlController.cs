@@ -71,6 +71,7 @@ public class UrlController : ControllerBase
         }
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpDelete, Route("{id}")]
     public async Task Delete(int id)
     {
