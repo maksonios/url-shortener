@@ -1,0 +1,39 @@
+﻿#urlbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* This ensures that the #urlbox takes at least the height of the viewport */
+  padding: 20px; /* Adjust padding as needed */
+  margin-top: -50px;
+  margin-bottom: -750px;
+}
+
+#formurl {
+  width: 100%; /* Adjust width as needed */
+  max-width: 600px; /* Ensures the form does not stretch too wide */
+  display: flex;
+  flex-direction: column;
+}
+
+#formurl input[type="text"] {
+  margin-bottom: 10px; /* Adds some space below the text input */
+  padding: 10px; /* Adjust padding for better text input appearance */
+  width: 500px;
+}
+
+#formbutton {
+  display: flex;
+  justify-content: center; /* Centers the button inside #formbutton */
+}
+
+#formbutton input[type="submit"] {
+  padding: 10px 20px; /* Adjust padding to make the button larger */
+  cursor: pointer; /* Changes the cursor to indicate the element is clickable */
+}
+
+/* Additional styles for better appearance */
+input[type="text"], input[type="submit"] {
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounds the corners of the input fields */
+}
+

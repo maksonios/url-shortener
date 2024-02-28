@@ -1,0 +1,40 @@
+<h1 id="tableLabel">URLs</h1>
+
+<p>This component has a table with all URLs and their equivalent after shortening, deleting of the
+  records is possible(only authorized users). You can view details about these URLs by
+  navigating to Short URL Info view with correct Id.</p>
+
+<p *ngIf="!urls?.length"><em>There are no URLs in the database.</em></p>
+
+<section id="urlbox">
+  <h1 class="text-center mt-5 mb-2">Paste the URL to be shortened</h1>
+  <form (submit)="submitAction($event)">
+    <div id="formurl">
+      <input type="text" name="u" [(ngModel)]="originalUrl" placeholder="Enter the link here">
+      <div id="formbutton">
+        <input type="submit" value="Shorten URL">
+      </div>
+    </div>
+  </form>
+</section>
+
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="urls.length">
+  <thead>
+  <tr>
+    <th>Original URL</th>
+    <th>Shortened URL</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let url of urls">
+    <td>{{ url.url }}</td>
+    <td>{{ url.shortUrl }}</td>
+    <td id="actions">
+      <a [routerLink]="['/urls-info/', url?.id]">View</a>
+      <button id="delete-btn" (click)="deleteAction(url.id);">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

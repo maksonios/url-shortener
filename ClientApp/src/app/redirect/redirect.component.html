@@ -1,0 +1,17 @@
+﻿<h1 id="tableLabel">Redirect to URL</h1>
+
+<p>This component gives you the original URL.</p>
+
+<section id="urlbox">
+  <h2 class="text-center mt-5 mb-2">Paste the URL to be extracted</h2>
+  <form (submit)="submitAction($event)">
+    <div id="formurl">
+      <input type="text" name="u" [(ngModel)]="shortenedUrl" placeholder="Enter the shortened link here">
+      <div id="formbutton">
+        <input type="submit" value="Extract URL">
+      </div>
+    </div>
+  </form>
+  <p style="margin-top: 30px;" *ngIf="originalUrl">Original URL: <a href="{{originalUrl}}">Click</a></p>
+  <p>{{originalUrl}}</p>
+</section>
