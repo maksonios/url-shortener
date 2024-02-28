@@ -29,7 +29,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let url of urls">
-    <td>{{ url.url }}</td>
+    <td class="truncate">{{ url.url }}</td>
     <td>{{ url.shortUrl }}</td>
     <td *ngIf="isAuthenticated | async" id="actions">
       <a [routerLink]="['/urls-info/', url?.id]">View</a>

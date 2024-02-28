@@ -45,3 +45,9 @@ input[type="text"], input[type="submit"] {
   border-radius: 5px; /* Rounds the corners of the input fields */
 }
 
+.truncate {
+  max-width: 400px; /* Adjust based on your layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
