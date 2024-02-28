@@ -1,4 +1,4 @@
-﻿import {Component, Inject} from '@angular/core';
+﻿import {Component, Inject, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AuthorizeService} from "../../api-authorization/authorize.service";
@@ -9,9 +9,10 @@ import {ApiResponse, UrlModel} from "../models/url";
   templateUrl: './urls-table-view.component.html',
   styleUrls: ['./urls-table-view.component.css']
 })
-export class UrlsTableViewComponent {
+export class UrlsTableViewComponent implements OnInit{
   urls: UrlModel[] = [];
   isAuthenticated?: Observable<boolean>;
+  isAdmin = false;
   http: HttpClient;
   baseUrl: any;
   originalUrl: string = '';
@@ -30,6 +31,12 @@ export class UrlsTableViewComponent {
     this.isAuthenticated = this.authorizeService.isAuthenticated();
     this.http = http;
     this.baseUrl = baseUrl;
+  }
+
+  ngOnInit(): void {
+    this.authorizeService.hasRole('Admin').subscribe(isAdmin => {
+      this.isAdmin = isAdmin;
+    });
   }
 
   deleteAction(urlId: number): void {

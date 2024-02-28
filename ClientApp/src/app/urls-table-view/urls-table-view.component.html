@@ -33,7 +33,7 @@
     <td>{{ url.shortUrl }}</td>
     <td *ngIf="isAuthenticated | async" id="actions">
       <a [routerLink]="['/urls-info/', url?.id]">View</a>
-      <button id="delete-btn" (click)="deleteAction(url.id);">Delete</button>
+      <button *ngIf="isAdmin" id="delete-btn" (click)="deleteAction(url.id);">Delete</button>
     </td>
   </tr>
   </tbody>
